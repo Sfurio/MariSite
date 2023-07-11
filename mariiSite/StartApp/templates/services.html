@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<meta name="description" content="Your go-to company for eyelash extensions in the Central Florida area. Enhance your lashes with our Wet Set, Hybrid Set, Volume Set, and Wispy Mega Volume Set. Contact us to schedule an appointment or learn more about our services.">
+<meta name="keywords" content="eyelash extensions, eyelash technician, Central Florida, Wet Set, Hybrid Set, Volume Set, Wispy Mega Volume Set, Kissimmee, Downtown Kissimmee">
+<link rel="stylesheet" href="{% static 'servicestyle.css' %}">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<div class="container services-container">
+  <h2 class="section-title">Services We Provide</h2>
+
+  <div class="row service">
+    <div class="col-md-6">
+    </div>
+    <div class="col-md-6">
+      <h3 class="service-title">Wet Set (Mascara Look)</h3>
+      <p class="service-description">Achieve a natural, mascara-like look with our Wet Set service. We will apply individual lash extensions to enhance the length and volume of your natural lashes, providing a beautiful and effortless mascara effect. This service takes approximately 2 hours and is priced at $100.00.</p>
+      <div class="service-button-container">
+        <button type="button" class="btn btn-primary service-button" onclick="location.href='{% url 'Schedule' %}'">Schedule Service</button>
+      </div>    
+    </div>
+  </div>
+
+  <div class="row service">
+    <div class="col-md-6">
+    </div>
+    <div class="col-md-6">
+      <h3 class="service-title">Wet Set Fill</h3>
+      <p class="service-description">Maintain your Wet Set lashes with a fill session. We will carefully remove any grown-out or loose extensions and replace them with new extensions, ensuring a seamless and full appearance. This fill session takes approximately 1 hour 45 minutes and is priced at $85.00.</p>
+      <div class="service-button-container">
+        <button type="button" class="btn btn-primary service-button" onclick="location.href='{% url 'Schedule' %}'">Schedule Service</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row service">
+    <div class="col-md-6">
+    </div>
+    <div class="col-md-6">
+      <h3 class="service-title">Hybrid Full Set</h3>
+      <p class="service-description">Enhance your lashes with a Hybrid Full Set. We will apply a combination of classic and volume lash extensions, creating a fuller and more dramatic look. This service takes approximately 2 hours 10 minutes and is priced at $110.00.</p>
+      <div class="service-button-container">
+        <button type="button" class="btn btn-primary service-button" onclick="location.href='{% url 'Schedule' %}'">Schedule Service</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row service">
+    <div class="col-md-6">
+    </div>
+    <div class="col-md-6">
+      <h3 class="service-title">Hybrid Fill</h3>
+      <p class="service-description">Maintain your Hybrid lashes with a fill session. We will carefully fill in any gaps in your lash extensions, ensuring a seamless and voluminous appearance. This fill session takes approximately 1 hour 35 minutes and is priced at $90.00.</p>
+      <div class="service-button-container">
+        <button type="button" class="btn btn-primary service-button" onclick="location.href='{% url 'Schedule' %}'">Schedule Service</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row service">
+    <div class="col-md-6">
+    </div>
+    <div class="col-md-6">
+      <h3 class="service-title">Volume Full Set</h3>
+      <p class="service-description">Get a fuller look with our Volume Full Set. We will apply multiple lightweight lash extensions to each of your natural lashes, creating a voluminous and glamorous effect. This service takes approximately 2 hours 30 minutes and is priced at $125.00.</p>
+      <div class="service-button-container">
+        <button type="button" class="btn btn-primary service-button" onclick="location.href='{% url 'Schedule' %}'">Schedule Service</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row service">
+    <div class="col-md-6">
+    </div>
+    <div class="col-md-6">
+      <h3 class="service-title">Volume Fill</h3>
+      <p class="service-description">Maintain your Volume lashes with a fill session. We will add extensions to any areas with grown-out lashes, ensuring a full and voluminous look. This fill session takes approximately 1 hour 45 minutes and is priced at $95.00.</p>
+      <div class="service-button-container">
+        <button type="button" class="btn btn-primary service-button" onclick="location.href='{% url 'Schedule' %}'">Schedule Service</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row service">
+    <div class="col-md-6">
+    </div>
+    <div class="col-md-6">
+      <h3 class="service-title">Mega Volume Full Set</h3>
+      <p class="service-description">For the ultimate lash transformation, try our Mega Volume Full Set. We will apply an advanced technique involving the application of ultra-fine lash extensions to create a bold and dramatic look. This service takes approximately 3 hours 45 minutes and is priced at $140.00.</p>
+      <div class="service-button-container">
+        <button type="button" class="btn btn-primary service-button" onclick="location.href='{% url 'Schedule' %}'">Schedule Service</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row service">
+    <div class="col-md-6">
+    </div>
+    <div class="col-md-6">
+      <h3 class="service-title">Mega Volume Fill</h3>
+      <p class="service-description">Maintain your Mega Volume lashes with a fill session. We will carefully fill in any gaps and add new extensions, ensuring a voluminous and captivating appearance. This fill session takes approximately 2 hours and is priced at $120.00.</p>
+      <div class="service-button-container">
+        <button type="button" class="btn btn-primary service-button" onclick="location.href='{% url 'Schedule' %}'">Schedule Service</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

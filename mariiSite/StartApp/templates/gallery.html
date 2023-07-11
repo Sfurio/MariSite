@@ -1,0 +1,21 @@
+<!-- Gallery.html -->
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<meta name="description" content="Your go-to company for eyelash extensions in the Central Florida area. Enhance your lashes with our Wet Set, Hybrid Set, Volume Set, and Wispy Mega Volume Set. Contact us to schedule an appointment or learn more about our services.">
+<meta name="keywords" content="eyelash extensions, eyelash technician, Central Florida, Wet Set, Hybrid Set, Volume Set, Wispy Mega Volume Set, Kissimmee, Downtown Kissimmee">
+<link rel="stylesheet" href="{% static 'lightbox2/css/lightbox.css' %}">
+<link rel="stylesheet" href="{% static 'gallerystyles.css' %}">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<h1 class="title">Gallery</h1>
+  <div class="gallery">
+    {% for image in images %}
+      <a href="{% static image.src %}" data-lightbox="gallery" data-title="{{ image.caption }}">
+        <img src="{% static image.src %}" alt="{{ image.caption }}">
+      </a>
+    {% endfor %}
+  </div>
+  
+  <script src="{% static 'lightbox2/js/lightbox.js' %}"></script>
+{% endblock content %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Your go-to company for eyelash extensions in the Central Florida area. Enhance your lashes with our Wet Set, Hybrid Set, Volume Set, and Wispy Mega Volume Set. Contact us to schedule an appointment or learn more about our services.">
+    <meta name="keywords" content="eyelash extensions, eyelash technician, Central Florida, Wet Set, Hybrid Set, Volume Set, Wispy Mega Volume Set, Kissimmee, Downtown Kissimmee">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="{% static 'contactstyles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Contact Us</h1>
+        <div class="contact-info">
+            <div class="button-wrapper">
+                <a href="tel:+14078182976" class="btn">Click to Give us a Call!</a>
+                <a href="https://www.instagram.com/Slayeddbymari/" class="btn">Follow our Instagram!</a>
+                <a href="mailto:slayedbymarillc@gmail.com" class="btn">Email us with any Concerns!</a>
+            </div>
+            <div class="logo">
+                <img src="{% static 'Logo.png' %}">
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock content %}

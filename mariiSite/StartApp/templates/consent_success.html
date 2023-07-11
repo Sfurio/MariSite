@@ -1,0 +1,17 @@
+<!-- consent_success.html -->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Your go-to company for eyelash extensions in the Central Florida area. Enhance your lashes with our Wet Set, Hybrid Set, Volume Set, and Wispy Mega Volume Set. Contact us to schedule an appointment or learn more about our services.">
+  <meta name="keywords" content="eyelash extensions, eyelash technician, Central Florida, Wet Set, Hybrid Set, Volume Set, Wispy Mega Volume Set, Kissimmee, Downtown Kissimmee">
+  <title>Thank You</title>
+  <link rel="stylesheet" href="{% static 'thanksstyle.css' %}">
+</head>
+<h1>Thank you for submitting the form!</h1>
+<img src="{% static 'Logo.png' %}">
+<p>An email has been sent with your information.</p>
+{% endblock content %}

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<head>
+    <meta name="description" content="Your go-to company for eyelash extensions in the Central Florida area. Enhance your lashes with our Wet Set, Hybrid Set, Volume Set, and Wispy Mega Volume Set. Contact us to schedule an appointment or learn more about our services.">
+    <meta name="keywords" content="eyelash extensions, eyelash technician, Central Florida, Wet Set, Hybrid Set, Volume Set, Wispy Mega Volume Set, Kissimmee, Downtown Kissimmee">
+    <title>SlayedbyMari</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'homestyles.css' %}">
+</head>
+<body>
+    <header class="banner">
+        <h1 id="lhp1">SlayedbyMari</h1>
+        <p class="intro-text">Your go-to company for eyelash extensions in the Central Florida area.</p>
+    </header>
+
+    <section class="carousel">
+        <div class="carousel-inner">
+            {% for image in images %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                <img src="{% static '' %}{{ image }}" alt="Carousel Image">
+            </div>
+            {% endfor %}
+        </div>
+        <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only"></span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only"></span>
+        </a>
+    </section>
+
+    <section class="services">
+        <h1 class="text-center">Our Services</h1>
+        <div class="service-cards">
+            <div class="service-card">
+                <img src="{% static 'IMG_7021.jpg' %}" alt="Wet Set">
+                <div class="card-content">
+                    <h3 class="card-title">Wet Set</h3>
+                    <p class="card-description">Get a natural and classic look with our Wet Set lash extensions.</p>
+                    <a href="{% url 'Services' %}" class="btn">Learn More</a>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="{% static 'hybrid.png' %}" alt="Hybrid Set">
+                <div class="card-content">
+                    <h3 class="card-title">Hybrid Set</h3>
+                    <p class="card-description">Enhance your lashes with a combination of classic and volume extensions in our Hybrid Set.</p>
+                    <a href="{% url 'Services' %}" class="btn">Learn More</a>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="{% static 'volume.png' %}" alt="Volume Set">
+                <div class="card-content">
+                    <h3 class="card-title">Volume Set</h3>
+                    <p class="card-description">Achieve a dramatic and full lash look with our Volume Set lash extensions.</p>
+                    <a href="{% url 'Services' %}" class="btn">Learn More</a>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="{% static 'MegaVolume.png' %}" alt="Wispy Mega Volume Set">
+                <div class="card-content">
+                    <h3 class="card-title">Wispy Mega Volume Set</h3>
+                    <p class="card-description">Experience the ultimate lash volume and wispy effect with our Wispy Mega Volume Set.</p>
+                    <a href="{% url 'Services' %}" class="btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="location">
+        <h2 id="hh2">Our Information</h2>
+        <div class="locations-container">
+            <div class="locations-list">
+                <div class="location-card">
+                    <p>EyeLash Technician Marieliz Ramos</p>
+                    <p>407-818-2976</p>
+                    <p>SlayeddbyMarillc@gmail.com</p>
+                    <p>Located in Downtown Kissimmee</p>
+                </div>
+            </div>
+            <div class="logo">
+                <img src="{% static 'Logo.png' %}" alt="Logo">
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="disclaimer">
+            <p id="hp2">We seek to leave all our clients fully satisfied and strive to provide outstanding service.</p>
+            <p id="hp2">Do not leave if unsatisfied!!! Please notify us if you want to make any alterations during your appointment. Once you leave, we cannot make any further adjustments.</p>
+        </div>
+        <div class="button-container">
+            <button id="contact-btn" type="button" onclick="location.href='{% url 'Contact' %}'">Contact Us!</button>
+            <button id="consent-btn" type="button" onclick="location.href='{% url 'Consent' %}'">Consent Form</button>
+            <button id="schedule-btn" type="button" onclick="location.href='{% url 'Schedule' %}'">Schedule Appointment!</button>
+        </div>
+    </section>
+
+    <script>
+        var carouselItems = document.querySelectorAll('.carousel-item');
+        var carouselPrev = document.querySelector('.carousel-control-prev');
+        var carouselNext = document.querySelector('.carousel-control-next');
+        var currentSlide = 0;
+        var slideInterval = 5000; // Interval time in milliseconds (e.g., 5 seconds)
+
+        function showSlide(index) {
+            carouselItems.forEach(function (item) {
+                item.classList.remove('active');
+            });
+            carouselItems[index].classList.add('active');
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + carouselItems.length) % carouselItems.length;
+            showSlide(currentSlide);
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % carouselItems.length;
+            showSlide(currentSlide);
+        }
+
+        function startSlideShow() {
+            setInterval(nextSlide, slideInterval);
+        }
+
+        // Start the slideshow
+        startSlideShow();
+
+        carouselPrev.addEventListener('click', prevSlide);
+        carouselNext.addEventListener('click', nextSlide);
+    </script>
+
+</body>
+{% endblock content %}

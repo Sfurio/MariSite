@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Your go-to company for eyelash extensions in the Central Florida area. Enhance your lashes with our Wet Set, Hybrid Set, Volume Set, and Wispy Mega Volume Set. Contact us to schedule an appointment or learn more about our services.">
+    <meta name="keywords" content="eyelash extensions, eyelash technician, Central Florida, Wet Set, Hybrid Set, Volume Set, Wispy Mega Volume Set, Kissimmee, Downtown Kissimmee">
+    <title>Eyelash Extensions Consent Form</title>
+    <link rel="stylesheet" href="{% static 'consentstyle.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>EYELASH EXTENSIONS CONSENT FORM</h1>
+        <div class="consent-info">
+            <p>Terms & Conditions - PLEASE READ CAREFULLY!</p>
+            <ol>
+                <li class="listinfo">THERE ARE RISKS ASSOCIATED WITH HAVING ARTIFICIAL EYELASHES APPLIED TO AND/OR REMOVED FROM MY NATURAL LASHES. I HAVE REMOVED MY CONTACT LENSES AND UNDERSTAND THE RISK ASSOCIATED WITH KEEPING THEM IN.</li>
+                <li class="listinfo">AS PART OF THE PROCEDURE - EYE IRRITATION, PAIN, ITCHING DISCOMFORT AND IN RARE CASES EYE INFECTION MAY OCCUR.</li>
+                <li class="listinfo">THE DEPOSIT IS NONREFUNDABLE AND REMAINING BALANCE IS DUE IN CASH ONLY.</li>
+                <li class="listinfo">THERE IS A 3 DAY (72 HOUR) TIME LIMIT TO REACH OUT REGARDING LASH FALL OUT FOR A COMPLIMENTARY FILL. I UNDERSTAND THAT AFTER 72 HOURS A FILL WILL BE CHARGED ACCORDINGLY.</li>
+                <li class="listinfo">EVEN THOUGH THE TECHNICIAN MAY APPLY AND REMOVE THE EYELASH EXTENSIONS PROPERLY, THAT ADHESIVE MATERIAL MAY BECOME DISLODGED DURING OR AFTER THE PROCEDURE, WHICH MAY IRRITATE MY EYES OR REQUIRE FURTHER FOLLOW UP CARE.</li>
+                <li class="listinfo">I WILL FOLLOW THE AFTERCARE INSTRUCTIONS PROVIDED BY MY TECHNICIAN. FAILURE TO FOLLOW THE AFTERCARE INSTRUCTIONS MAY CAUSE THE EYELASH EXTENSIONS TO FALL OUT PREMATURELY.</li>
+                <li class="listinfo">I AGREE TO ANY AND ALL PICTURES OR VIDEOS BEING POSTED TO THE TECHNICIAN'S PAGE.</li>
+                <li class="listinfo">THIS AGREEMENT WILL REMAIN IN EFFECT FOR THIS PROCEDURE AND ALL FUTURE PROCEDURES CONDUCTED BY MY TECHNICIAN. I UNDERSTAND THAT THIS AGREEMENT IS BINDING AND THAT I HAVE READ AND FULLY UNDERSTAND ALL INFORMATION ABOVE.</li>
+                <li class="listinfo">I RELEASE MY TECHNICIAN, MARIELIZ RAMOS, FROM ALL LIABILITY ASSOCIATED WITH THIS PROCEDURE. MARIELIZ IS NOT RESPONSIBLE FOR ANY TECHNICIAN ERRORS. I UNDERSTAND THAT I HAVE BEEN ADVISED TO FOLLOW THE AFTERCARE PROTOCOL FROM MY TECHNICIAN AS TO AVOID ANY DISCOMFORT OR ADVERSE SIDE EFFECTS AFTER THE PROCEDURE.</li>
+            </ol>
+            <p>I have read and agree to the terms above and release Poised and the tech from any and all liability.</p>
+
+            <p>No refunds allowed.</p>
+
+            <form action="{% url 'Consent' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="firstname">First Name:</label>
+                    <input type="text" id="firstname" name="firstname" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastname">Last Name:</label>
+                    <input type="text" id="lastname" name="lastname" required>
+                </div>
+                <div class="form-group">
+                    <label for="signature">Signature:</label>
+                    <canvas id="signature-canvas" width="400" height="200"></canvas>
+                    <button id="clear-button" type="button">Clear</button>
+                    <input type="hidden" id="signature-data" name="signature-data" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Continue</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="{% static 'consentscript.js' %}"></script>
+</body>
+{% endblock content %}
