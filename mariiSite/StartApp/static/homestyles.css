@@ -1,4 +1,3 @@
-/* Header */
 .banner {
   background-color: black;
   text-align: center;
@@ -30,10 +29,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
 }
@@ -43,11 +40,10 @@
 }
 
 .carousel-item img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
+  
 }
 
 .carousel-control-prev,
@@ -136,7 +132,7 @@
   padding: 10px 20px;
   text-decoration: none;
   transition: background-color 0.3s ease-in-out;
-  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .btn:hover {
@@ -150,11 +146,12 @@
   text-align: center;
   font-size: 20px;
   margin: 0 0 10px;
-  
 }
+
 .location-card p {
-  margin-bottom: 10px; /* Adjust the value as needed */
+  margin-bottom: 10px;
 }
+
 #hh2 {
   color: #333;
   font-size: 24px;
@@ -163,9 +160,9 @@
 
 .locations-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-
 }
 
 .locations-list {
@@ -177,7 +174,6 @@
   background-color: #fff;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  
 }
 
 .logo {
@@ -228,4 +224,61 @@ button {
 button:hover {
   background-color: red;
   color: #fff;
+}
+
+@media only screen and (max-width: 768px) {
+  .banner {
+    padding: 30px; /* Reduce the padding for smaller screens */
+  }
+
+  .btn-primary {
+    margin-top: 20px; /* Reduce the top margin for smaller screens */
+  }
+
+  .card-img-top {
+    height: auto; /* Let the image height adjust automatically */
+  }
+
+  .carousel {
+    margin: 30px auto; /* Reduce the margin for smaller screens */
+  }
+
+  .carousel-item img {
+    height: auto; /* Let the image height adjust automatically */
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 12%; /* Increase the width of carousel control buttons for easier tapping */
+  }
+
+  .location-card {
+    padding: 10px 15px; /* Reduce the padding for smaller screens */
+    font-size: 14px; /* Decrease the font size for smaller screens */
+  }
+
+  .locations h2 {
+    font-size: 24px; /* Decrease the font size of the locations header */
+    margin-bottom: 20px; /* Reduce the bottom margin for smaller screens */
+  }
+
+  .logo {
+    width: 100%; /* Adjust the logo width to fit the container */
+  }
+
+  #hh2 {
+    font-size: 24px; /* Decrease the font size of the locations header */
+    margin-top: 20px; /* Reduce the top margin for smaller screens */
+  }
+
+  #hp1,
+  #hp2 {
+    font-size: 16px; /* Decrease the font size for smaller screens */
+  }
+
+  .btn-lg {
+    font-size: 60px; /* Enlarge the button font size for smaller screens */
+    padding: 10px 20px; /* Enlarge the button padding for smaller screens */
+    margin: 10px; /* Increase the button margin for smaller screens */
+  }
 }
