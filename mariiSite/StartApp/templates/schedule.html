@@ -45,6 +45,13 @@
         <label for="date">Preferred Date:</label>
         <input type="date" id="date" name="date" required>
       </div>
+
+      <div class="form-group">
+        <label for="hour">Preferred Hour of Service:</label>
+        <select id="hour" name="hour" required>
+          <!-- Hours will be dynamically added based on the selected date -->
+        </select>
+      </div>
       <div class="form-group">
         <input type="submit" value="Submit">
       </div>
@@ -53,5 +60,71 @@
       <img src="{% static 'Logo.png' %}">
     </div>
   </div>
+
+  <script>
+    // Get the date and hour elements
+    const dateInput = document.getElementById('date');
+    const hourSelect = document.getElementById('hour');
+
+    // Define the schedule with available days and corresponding hours
+    const schedule = {
+      "sunday": ["5:30 PM", "6:30 PM", "7:30 PM", "8:30 PM", "9:30 PM", "10:00 PM"],
+      "monday": ["11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM", "7:00 PM"],
+      "tuesday": ["Closed"], // Keep "Closed" as an option for Tuesday
+      "wednesday": ["5:30 PM", "6:30 PM", "7:30 PM", "8:30 PM", "9:30 PM", "10:00 PM"],
+      "thursday": ["6:30 PM", "7:30 PM", "8:30 PM", "9:30 PM", "10:00 PM"],
+      "friday": ["6:30 PM", "7:30 PM", "8:30 PM", "9:30 PM", "10:00 PM"],
+      "saturday": ["5:30 PM", "6:30 PM", "7:30 PM", "8:30 PM", "9:30 PM", "10:00 PM"]
+    };
+    
+
+    // Function to update the available hours based on the selected date
+    function updateHours() {
+      const selectedDate = new Date(dateInput.value);
+      const selectedDayIndex = selectedDate.getDay(); // 0 (Sunday) to 6 (Saturday)
+      const trueIndex = selectedDayIndex + 1; //
+      // Days of the week: 0 (Sunday) to 6 (Saturday)
+      const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      
+      // Day names in lowercase for the schedule object
+      const scheduleDays = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+      
+      const selectedDay = scheduleDays[trueIndex].toLowerCase();
+      const availableHours = schedule[selectedDay] || [];
+      
+      // Clear existing options
+      hourSelect.innerHTML = '';
+    
+      // Add available hours as options
+      availableHours.forEach(hour => {
+        const option = document.createElement('option');
+        option.value = hour;
+        option.textContent = hour;
+        hourSelect.appendChild(option);
+      });
+    }
+    
+
+    // Event listener for date change
+    dateInput.addEventListener('change', updateHours);
+
+    // Initial call to update hours based on the default selected date (if any)
+    updateHours();
+
+    // Disable Tuesdays in the date picker
+    const allDateInputs = document.getElementsByTagName('input');
+    for (let i = 0; i < allDateInputs.length; i++) {
+      const dateInput = allDateInputs[i];
+      dateInput.addEventListener('input', function() {
+        const selectedDate = new Date(this.value);
+        const selectedDay = selectedDate.getDay(); // 0 (Sunday) to 6 (Saturday)
+        if (selectedDay === 2) { // Tuesday is 2 (0-based index)
+          this.setCustomValidity('Tuesdays are closed. Please select a different day.');
+        } else {
+          this.setCustomValidity('');
+        }
+      });
+    }
+  </script>
 </body>
 {% endblock content %}
